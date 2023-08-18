@@ -42,8 +42,39 @@ class LinkedList:
                     current = current.next
                 
                 current = current.next
-                
-   
+    def delete_node(self,value):
+        if self.head.value == value:
+            self.head = self.head.next
+        else:
+            current = self.head
+            while current.next.value != value:
+                current = current.next
+            current.next = current.next.next
+
+    def delete_before(self,value):
+        if self.head.next.value == value:
+            self.head = self.head.next
+        else:
+            current = self.head
+            while current.next.next.value != value:
+                current = current.next
+            current.next = current.next.next
+
+    def add_node_after(self,value,target):
+        newnode = Node(value)
+        if self.head.value == target:
+            newnode.next = self.head.next
+            self.head.next = newnode
+        else:
+            current = self.head
+            while current.value != target:
+                current = current.next
+            newnode.next = current.next
+            current.next = newnode
+
+
+
+
 
 
     def array_to_linkedlist(self,arr):
@@ -72,5 +103,14 @@ class LinkedList:
 obj = LinkedList()
 arr=[8,5,9,6,3,4,7]
 obj.array_to_linkedlist(arr)
-obj.add_node_begening(896,4)
+obj.add_node_after(89,6)
+obj.print_node()
+obj.add_node_begening(90,89)
+print()
+obj.print_node()
+print()
+obj.delete_node(90)
+obj.print_node()
+print()
+obj.delete_before(7)
 obj.print_node()

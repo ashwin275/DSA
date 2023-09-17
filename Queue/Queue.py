@@ -22,5 +22,9 @@ class Queue:
             return 'queue is empty'
 
 
-arr = []
+
 obj = Queue()
+obj.enqueue(10)
+obj.enqueue(20)
+obj.enqueue(30)
+print(obj.queue)
